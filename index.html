@@ -131,7 +131,7 @@
             <img src="https://kappa.lol/qow5VH.jpg" alt="Обложка" class="cover-image" id="cover">
         </div>
 
-        <audio id="audio" src="Спасибо.mp3"></audio>
+        <audio id="audio" src="https://kappa.lol/orQcaT.mp3"></audio>
 
         <button class="play-btn" id="playBtn">▶ Слушать</button>
 
@@ -153,7 +153,9 @@
                 playBtn.innerHTML = '▶ Слушать';
                 cover.classList.remove('playing');
             } else {
-                audio.play();
+                audio.play().catch(error => {
+                    console.log("Ошибка воспроизведения. Возможно, нужно сначала кликнуть по странице:", error);
+                });
                 playBtn.innerHTML = '⏸ Пауза';
                 cover.classList.add('playing');
             }
